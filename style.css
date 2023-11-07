@@ -1,0 +1,154 @@
+:root {
+    /* Define your color variables here */
+    --primary-background: #f0f0f0;
+    --secondary-background: #ffffff;
+    --primary-text: #333333;
+    --button-background: #007bff;
+    --button-text: #ffffff;
+    --grid-gap: 20px; /* Gap between grid items */
+    --list-gap: 10px;
+    --grid-column-gap: 20px;
+    --padding-sides: 20px; /* Gap between grid items */
+    --gradient-colors-bg: #4395ec, #c081d9, #78bed9, #9d9dff, #9d9dff;
+}
+
+@keyframes shift {
+    0%, 100% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+body {
+    color: var(--primary-text);
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    padding: 0 var(--padding-sides);
+    max-width: 450px;
+
+    /* Define a linear gradient with two colors and set the direction */
+    background: linear-gradient(135deg, var(--gradient-colors-bg));
+
+    /* Extend the background size for the shifting animation */
+    background-size: 200% 100%;
+
+    /* Apply the animation */
+    animation: shift 15s ease-in-out infinite;
+}
+
+.site-header {
+    text-align: center;
+    padding: 50px;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+
+    /* Use 50% border-radius to make it a perfect circle */
+    border-radius: 50%;
+
+    /* Set the border around the image */
+    border: 4px solid #ffffff; /* Example border color and width */
+
+    /* Optional: Center the image if it's not a square to begin with */
+    object-fit: cover;
+
+    /* Align the image if it's in a flex or grid container */
+    display: block;
+    margin: auto; /* This will center the image if the container allows it */
+
+}
+
+a {
+    text-decoration: none;
+    color: var(--button-background);
+}
+
+.credits {
+    display: flex;
+}
+
+.credits * {
+    margin: 0 auto;
+}
+
+/* General grid styling */
+.grid {
+    display: grid;
+    gap: var(--grid-column-gap);
+    padding: var(--grid-gap);
+}
+
+/* Grid variations for 1 to 6 items per row */
+.grid-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+.spacer-10 { width: 100%; height: 10px; }
+.spacer-50 { width: 100%; height: 50px; }
+.spacer-100 { width: 100%; height: 100px; }
+.spacer-200 { width: 100%; height: 200px; }
+.spacer-300 { width: 100%; height: 300px; }
+
+/* Grid cell styling to maintain square aspect ratio */
+.grid-item {
+    /*background-color: var(--secondary-background);*/
+    position: relative;
+    overflow: hidden; /* Ensures that the image does not spill outside the grid item */
+}
+
+.grid-item::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* This keeps the aspect ratio 1:1 */
+}
+
+.grid-item-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item-content img {
+    width: 100%;
+    object-fit: contain; /* This ensures that the image is scaled properly to fit inside the item */
+}
+
+/* Style for the vertical list buttons */
+.link-list {
+    width: calc(100% - 2 * var(--list-gap));
+    margin: var(--list-gap);
+}
+
+.link-button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+    text-align: center;
+    padding: 15px;
+    margin-bottom: var(--list-gap);
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: block;
+}
+
+.link-button:hover {
+    background-color: #9dccff;
+    color: #003267;
+    box-shadow: inset 0 0 0 2px #007bff;
+
+}
+
+/* Media queries can be used for other responsive adjustments if needed */
