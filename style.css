@@ -26,6 +26,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0 auto;
     padding: 0 var(--padding-sides);
+    min-height: 100vh;
     max-width: 450px;
 
     /* Define a linear gradient with two colors and set the direction */
